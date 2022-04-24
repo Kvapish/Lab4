@@ -5,115 +5,54 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-/**
- * BASIC
- * Производитель
- * Процессор
- * Объем оперативной памяти
- * Дата изготовления
- * Цена
- * <p>
- * Определить компьютер, изготовленный фирмой Dell с
- * минимальной ценой и вывести все сведения о нем.
- */
 
-class Computer {
+public class Main {
+    public static void main(String[] args) {
+        // write your code here
+        first();
+        // second();
 
-    private String Manufacturer = "";
-
-    public void setManufacturer(String str) {
-        String Name[] = new String[5];
-        Name[0] = "HP";
-        Name[1] = "Samsung";
-        Name[2] = "Asus";
-        Name[3] = "Xiaomi";
-        Name[4] = "Dell";
-        for (int i = 0; i < Name.length; i++) {
-            if (str.equals(Name[i])) {
-                Manufacturer = str;
-                break;
-            } else if (i == Name.length - 1) {
-                System.out.println("Введите корректное название производителя.");
-            }
-        }
     }
+    /**
+     * BASIC
+     * Производитель
+     * Процессор
+     * Объем оперативной памяти
+     * Дата изготовления
+     * Цена
+     * <p>
+     * Определить компьютер, изготовленный фирмой Dell с
+     * минимальной ценой и вывести все сведения о нем.
+     */
+    public static void first() {
+        final Computer computer1 = new Computer("Apple","Intel Core I5",8,LocalDate.of(2021,4,5),95000);
+        final Computer computer2 = new Computer("Samsung","Intel Core I7",16,LocalDate.of(2022,10,3),124500);
+        final Computer computer3 = new Computer("Asus","Intel Core I3",16,LocalDate.of(2018,8,7),21500);
+        final Computer computer4 = new Computer("Dell","Intel Core I7",16,LocalDate.of(2022,1,1),160000);
+        final Computer computer5 = new Computer("Xiaomi","AMD Ryzen 3",8,LocalDate.of(2015,1,2),50000);
+        final Computer computer6 = new Computer("Dell","AMD Ryzen 5",16,LocalDate.of(2019,12,1),89000);
 
-    public String getManufacturer() {
-        return Manufacturer;
-    }
 
-    private String CPU = "";
+        System.out.println();
 
-    public void setCPU(String str) {
-        char cc = str.charAt(0);
-        int aa = (int) cc;
-        if (aa >= 65 && aa <= 90) {
-            CPU = str;
-        } else {
-            System.out.println("Введите корректное название процессора.");
-        }
-    }
 
-    public String getCPU() {
-        return CPU;
-    }
 
-    private int RAM;
-
-    public void setRAM(int ram) {
-        if (ram == 8 || ram == 16) {
-            RAM = ram;
-        } else {
-            System.out.println("Введите корректное количество оперативной памяти.");
-        }
-    }
-
-    public int getRAM() {
-        if (RAM == 0) {
-            System.exit(0);
-        }
-        return RAM;
-    }
-
-    private LocalDate Date;
-
-    public void setDate(LocalDate date) {
-        if (date.getYear() > 2010 && date.getYear() < 2023) {
-            Date = date;
-        } else {
-            System.out.println("Введите корректную дату изготовления.");
-            Date = LocalDate.of(1, 1, 1);
-        }
-    }
-
-    public LocalDate getDate() {
-        if (Date.getYear() == 1) {
-            System.exit(0);
-        }
-        return Date;
-    }
-
-    private int Price;
-
-    public void setPrice(int price) {
-        if (price > 20000 && price < 250000) {
-            Price = price;
-        } else {
-            System.out.println("Введите корректную цену.");
-        }
-    }
-
-    public int getPrice() {
-        if (Price == 0) {
-            System.exit(0);
-        }
-        return Price;
-    }
-
-    public void getInfo() {
-        System.out.println("Производитель : " + getManufacturer() + " Процессор : " + getCPU() + " Оперативная память : " + getRAM() + " Дата изготовления :" + getDate() + " Цена :" + getPrice());
+        final Computers computers = new Computers(6);
+        computers.addComputer(computer1);
+        computers.addComputer(computer2);
+        computers.addComputer(computer3);
+        computers.addComputer(computer4);
+        computers.addComputer(computer5);
+        computers.addComputer(computer6);
+        System.out.println(computers);
+        System.out.println();
+        System.out.println(computers.findDell());
     }
 }
+
+
+
+
 
 /**
  * ADVANCED
@@ -125,8 +64,10 @@ class Computer {
  * <p>
  * Вывести данные о поездах, пребывающих в пути более
  * суток.
- */
 
+public static void second() {
+
+}
 class Train {
 
     private int Number;
@@ -221,52 +162,14 @@ class Train {
         System.out.println("Номер поезда : "+getNumber()+" Направление : Одесса- "+getDirection()+" Время прибытие : "+getArrival()+" Время отбытие : "+getDeparture()+" Растояние: "+getDistance()+"км");
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        // write your code here
-        first();
-        //second();
-
-    }
+ */
 
 
-    public static void first() {
-        Computer[] computers = new Computer[5];
-        String Name[] = new String[5];
-        Name[0] = "HP";
-        Name[1] = "Samsung";
-        Name[2] = "Asus";
-        Name[3] = "Xiaomi";
-        Name[4] = "Dell";
-        int min = 260000;
-        int index = 0;
-        boolean flag = false;
-        for (int i = 0; i < computers.length; i++) {
-            computers[i] = new Computer();
-            computers[i].setManufacturer(Name[(int) (Math.random() * 5)]);
-            computers[i].setCPU("Intel Core I5 " + (i + 1));
-            computers[i].setRAM(8 * ((int) (Math.random() * 2) + 1));
-            computers[i].setDate(LocalDate.now().minusYears((int) (Math.random() * 4)).minusMonths((int) (Math.random() * 13)).minusDays((int) (Math.random() * 20)));
-            computers[i].setPrice((int) ((Math.random() * 230) * 1000) + 20000);
-            computers[i].getInfo();
-            if (computers[i].getManufacturer().equals(Name[4]) && computers[i].getPrice() < min) {
-                index = i;
-                flag = true;
-                min = computers[i].getPrice();
-            }
-        }
-        System.out.println("\n");
-
-        if (flag) {
-            computers[index].getInfo();
-        } else {
-            System.out.println("Компьютеров фирмы Dell , не найдено.");
-        }
-    }
 
 
-    public static void second() {
+
+
+    /*public static void second() {
         Train [] trains = new Train[7];
         String [] Direction = new String[7];
         Direction[0] = "Киев";
@@ -290,6 +193,6 @@ public class Main {
         }
 
     }
-}
+}*/
 
 
