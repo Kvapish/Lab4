@@ -12,11 +12,11 @@ public class Examination2 {
     }
     static String correctingDirection(String str) {
         String result = "";
-        str = str.strip();
-        char[] ch = str.toCharArray();
+        str = str.strip();//Копирую строку
+        char[] ch = str.toCharArray();//Разбиваю на символы
         for (int i = 0; i < ch.length; i++) {
             if (i == 0) {
-                if (Character.isAlphabetic(ch[i]) && Character.isUpperCase(ch[i])) {
+                if (Character.isAlphabetic(ch[i]) && Character.isUpperCase(ch[i])) {//Чтобы вводились только английские и с большой
                     result += ch[i];
                     continue;
                 } else {
@@ -25,7 +25,7 @@ public class Examination2 {
                 }
             }
             if (i != 0) {
-                if (Character.isAlphabetic(ch[i]) && Character.isLowerCase(ch[i])) {
+                if (Character.isAlphabetic(ch[i]) && Character.isLowerCase(ch[i])) {//Чтобы вводились только английские и с большой
                     result += ch[i];
                 } else {
                     result = "Ошибка.";

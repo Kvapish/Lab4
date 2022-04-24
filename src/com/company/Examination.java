@@ -10,7 +10,7 @@ public class Examination {
         char[] ch = str.toCharArray();
         for (int i = 0; i < ch.length; i++) {
             if (i == 0) {
-                if (Character.isAlphabetic(ch[i]) && Character.isUpperCase(ch[i])) {
+                if (Character.isAlphabetic(ch[i]) && Character.isUpperCase(ch[i])) {//Чтобы вводились только английские и с большой
                     result += ch[i];
                     continue;
                 } else {
@@ -19,7 +19,7 @@ public class Examination {
                 }
             }
             if (i != 0) {
-                if (Character.isAlphabetic(ch[i]) && Character.isLowerCase(ch[i])) {
+                if (Character.isAlphabetic(ch[i]) && Character.isLowerCase(ch[i])) {//Чтобы вводились только английские и с большой
                     result += ch[i];
                 } else {
                     result = "Ошибка.";

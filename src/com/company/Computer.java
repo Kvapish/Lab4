@@ -47,7 +47,7 @@ public class Computer {
                 ", CPU: " + CPU +
                 ", RAM: " + RAM +
                 ", Дата производства: " + Date +
-                ", Цена: " + Price +
+                ", Цена: " + Price + " грн"+
                 '}';
     }
 }
