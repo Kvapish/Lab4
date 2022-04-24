@@ -15,7 +15,7 @@ public class Computers {
         }
     }
     public String toString() {
-        String result = "Computers: " + System.lineSeparator();
+        String result = "Компьютеры : " + System.lineSeparator();
 
         for (final Computer computer : computers) {
             result += computer + System.lineSeparator();
@@ -25,7 +25,6 @@ public class Computers {
     }
     Computer index;
     int min = 2000000;
-
     public Computer findDell(){
         for(final Computer computer :computers){
             if(computer.getManufacturer().equals("Dell")) {

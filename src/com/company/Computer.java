@@ -42,12 +42,12 @@ public class Computer {
     }
     public int getPrice(){return Price;}
     public String toString() {
-        return "Computer{" +
-                "Manufacturer='" + Manufacturer + '\'' +
-                ", CPU='" + CPU + '\'' +
-                ", RAM=" + RAM +
-                ", Date=" + Date +
-                ", Price=" + Price +
+        return "Компьютер{" +
+                "Производитель : " + Manufacturer +
+                ", CPU: " + CPU +
+                ", RAM: " + RAM +
+                ", Дата производства: " + Date +
+                ", Цена: " + Price +
                 '}';
     }
 }

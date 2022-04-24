@@ -9,8 +9,8 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
         // write your code here
-        first();
-        // second();
+        //first();
+        second();
 
     }
     /**
@@ -48,11 +48,45 @@ public class Main {
         System.out.println();
         System.out.println(computers.findDell());
     }
+
+
+
+
+
+
+/**
+ * ADVANCED
+ * N поезда
+ * Направление
+ * Время прибытия
+ * Время отбытия
+ * Расстояние
+ * <p>
+ * Вывести данные о поездах, пребывающих в пути более
+ * суток.
+*/
+public static void second() {
+    final Train train1 = new Train(1,"Киев",LocalDateTime.of(2022,4,24,21,0),LocalDateTime.of(2022,4,23,12,0),432);
+    final Train train2 = new Train(2,"Николаев",LocalDateTime.of(2022,4,23,16,0),LocalDateTime.of(2022,4,23,12,0),124);
+    final Train train3 = new Train(3,"Херсон",LocalDateTime.of(2022,4,23,18,0),LocalDateTime.of(2022,4,23,12,0),145);
+    final Train train4 = new Train(4,"Львов",LocalDateTime.of(2022,4,24,12,55),LocalDateTime.of(2022,4,23,12,0),618);
+    final Train train5 = new Train(5,"Харьков",LocalDateTime.of(2022,4,24,18,30),LocalDateTime.of(2022,4,23,12,0),554);
+    final Train train6 = new Train(6,"Днепр",LocalDateTime.of(2022,4,24,11,10),LocalDateTime.of(2022,4,23,12,0),648);
+    final Train train7 = new Train(7,"Умань",LocalDateTime.of(2022,4,23,19,0),LocalDateTime.of(2022,4,23,12,0),278);
+
+    System.out.println();
+
+
+    final Trains trains = new Trains(7);
+    trains.addTrain(train1);
+    trains.addTrain(train2);
+    trains.addTrain(train3);
+    trains.addTrain(train4);
+    trains.addTrain(train5);
+    trains.addTrain(train6);
+    trains.addTrain(train7);
+    System.out.println(trains);
+    System.out.println();
+    trains.findDay();
+ }
 }
-
-
-
-
-
-
-

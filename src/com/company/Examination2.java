@@ -1,10 +1,16 @@
 package com.company;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public class Examination {
-    static String correctingManufacturer(String str) {
+public class Examination2 {
+    static int correctingNumber(int number){
+        if(number > 0 &&number <= 7){
+            return number;
+        }
+        else return -1;
+    }
+    static String correctingDirection(String str) {
         String result = "";
         str = str.strip();
         char[] ch = str.toCharArray();
@@ -29,26 +35,11 @@ public class Examination {
         }
         return result;
     }
-
-    static int correctingPrice(int price){
-        if(price>20000&&price<200000){
-            return price;
+    static int correctingDistance(int distance){
+        if(distance > 1 && distance < 1000){
+            return distance;
         }
         else return -1;
     }
-    static int correctingRAM(int ram){
-        if (ram == 8 || ram == 16) {
-            return ram;
-        } else {
-            return -1;
-        }
-    }
-    static LocalDate correctingDate(LocalDate date){
-        if (date.getYear() > 2010 && date.getYear() < 2023) {
-            return date;
-        } else {
-            return date;
-        }
 
-    }
 }
